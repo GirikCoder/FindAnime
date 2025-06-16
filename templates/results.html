@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>FindAnime | Results</title></head>
+<body>
+    <h1>Results for: "{{ user_input }}"</h1>
+    {% if results %}
+        {% for anime in results %}
+            <h2>{{ anime.name }}</h2>
+            <p><strong>Match Score:</strong> {{ anime.score }} / 10</p>
+            <p>{{ anime.synopsis }}</p>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No results yet! (Matching logic coming in next step)</p>
+    {% endif %}
+    <a href="/search">🔎 Search Again</a>
+</body>
+</html>
