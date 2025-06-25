@@ -1,10 +1,9 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const serverless = require('serverless-http');
 
 const app = express();
-const port = 3000;
-
 app.use(cors());
 
 const JIKAN_API_URL = 'https://api.jikan.moe/v4';
@@ -53,6 +52,5 @@ app.get('/api/search', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Backend server listening at http://localhost:${port}`);
-}); 
+// Export for Vercel
+module.exports.handler = serverless(app);
