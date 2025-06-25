@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FindAnime | Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-title">FindAnime</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="anime-list.html">Anime List</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="search-desc-section">
+            <h2>Search Results</h2>
+            <p id="desc-bar"></p>
+        </section>
+        <div id="results-container" class="anime-grid">
+            <!-- Results will be loaded here by JavaScript -->
+        </div>
+    </main>
+    <div id="modal-overlay" class="hidden">
+        <div id="anime-modal" class="modal">
+            <!-- Modal content will be injected here -->
+        </div>
+    </div>
+    <script>
+        // Show the description bar from URL param
+        const urlParams = new URLSearchParams(window.location.search);
+        const desc = urlParams.get('desc');
+        if (desc) {
+            document.getElementById('desc-bar').textContent = `Description: ${desc}`;
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html> 
